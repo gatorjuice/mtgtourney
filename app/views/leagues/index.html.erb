@@ -1,7 +1,8 @@
 <h1><%= current_user.nickname.capitalize %>'s Leagues</h1>
 <% @leagues.each do |league| %>
-  <h2><%= league.name %></h2>
+  <h2><%= link_to league.name, "/leagues/#{league.id}" %></h2>
+  <%= link_to "start a new tournament", "/tournaments/new?league_id=#{league.id}" %>
   <% league.users.each do |user| %>
-    <p><%= user.nickname %></p>
+    <p><%= user.nickname.capitalize %></p>
   <% end %>
 <% end %>

@@ -1,6 +1,10 @@
 class LeaguesController < ApplicationController
   def index
-    @leagues = current_user.leagues
+    if current_user
+      @leagues = current_user.leagues
+    else
+      redirect_to "/users/sign_in"
+    end
   end
 
   def new
@@ -10,6 +14,7 @@ class LeaguesController < ApplicationController
   end
 
   def show
+    @league = League.find(params[:id])
   end
 
   def edit

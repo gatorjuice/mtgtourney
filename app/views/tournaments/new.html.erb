@@ -1,2 +1,11 @@
-<h1>Tournaments#new</h1>
-<p>Find me in app/views/tournaments/new.html.erb</p>
+<h1>Start a New Tournament</h1>
+<%= form_tag '/tournaments', method: :post do %>
+  <%= hidden_field_tag :league_id, @league_id %>
+  <div>
+    <%= label_tag :name, "Tournament Name:" %>
+    <%= text_field_tag :name %>
+  </div>
+  <div>
+    <%= submit_tag "Start Tournament" %>
+  </div>
+<% end %>

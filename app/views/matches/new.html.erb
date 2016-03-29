@@ -1,0 +1,5 @@
+<h2>Who are you playing against, <%= current_user.nickname.capitalize %></h2>
+<%= form_tag "/matches", method: :post do %>
+<%= select_tag :opponent_id, options_from_collection_for_select(@opponents, :id, :nickname) %>
+<%= submit_tag "Start Match" %>
+<% end %>
