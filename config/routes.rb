@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'tournaments#index'
+  root 'leagues#index'
 end
